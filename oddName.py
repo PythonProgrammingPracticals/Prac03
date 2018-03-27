@@ -2,20 +2,11 @@
 
 def main ():
 
+# Get user's name and frequency
+
     name = get_name()
-
-
-    count = 0
-    for each in list(name):
-        if count % 2 != 0:
-            print(each)
-            count += 1
-        else:
-            count += 1
-
-    for char in name:
-        print(char, char.isalpha())
-
+    freq = int(input("Input the frequency of letters to print: "))
+    print_letters_of_freq(name, freq)
 
 def get_name():
     name = str(input("Enter your name:"))
@@ -27,6 +18,7 @@ def get_name():
     print(status)
     return name
 
+# Perform Error Checking on Name:
 
 def error_check(name):
     if all(x.isalpha() or x.isspace() for x in name):
@@ -34,6 +26,16 @@ def error_check(name):
 
     else:
         return "for alphabetical letters and spaces: no"
+
+# Identify the frequency of letters
+
+def print_letters_of_freq(name,freq):
+    for i in range(len(name)):
+        if i % freq == 0:
+
+            print(name[i], end=" ")
+
+
 
 
 main ()
