@@ -1,12 +1,9 @@
 """ CELINA KAESAR M. LUMAIN """
 
+def main ():
 
-def get_name(prompt):
-    result = str(input(prompt))
-    return result
+    name = get_name()
 
-def main():
-    name = str(input("Enter your name:"))
 
     count = 0
     for each in list(name):
@@ -19,8 +16,24 @@ def main():
     for char in name:
         print(char, char.isalpha())
 
+
+def get_name():
+    name = str(input("Enter your name:"))
+    status = error_check(name)
+    while status != "for alphabetical letters and spaces: yes" :
+        print(status)
+        name = str(input("ERROR! Please try again. Enter your name:"))
+        status = error_check(name)
+    print(status)
+    return name
+
+
+def error_check(name):
     if all(x.isalpha() or x.isspace() for x in name):
-        print("for alphabetical letters and spaces: yes")
+        return "for alphabetical letters and spaces: yes"
 
     else:
-        print("for alphabetical letters and spaces: no")
+        return "for alphabetical letters and spaces: no"
+
+
+main ()
